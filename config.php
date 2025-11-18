@@ -5,7 +5,7 @@
 
 $host = 'newdb1.database.windows.net'; // e.g., newdb1.mysql.database.azure.com
 $dbname = 'new'; // Your database name
-$username = 'habib'; // Format: username@servername (without .mysql.database.azure.com)
+$username = 'habb'; // Format: username@servername (without .mysql.database.azure.com)
 $password = 'paki.123'; // Your Azure MySQL password
 $port = 3306; // Default MySQL port
 
@@ -26,5 +26,6 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 ?>
+
 
 
