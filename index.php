@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+//require_once 'config.php';
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
@@ -129,4 +129,5 @@ try {
     </div>
 </body>
 </html>
+
 
