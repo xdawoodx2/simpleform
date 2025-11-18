@@ -3,10 +3,10 @@
 // Azure Database for MySQL Configuration
 // Replace these values with your Azure MySQL server details
 
-$host = 'your-server-name.mysql.database.azure.com'; // e.g., newdb1.mysql.database.azure.com
+$host = 'newdb1.database.windows.net'; // e.g., newdb1.mysql.database.azure.com
 $dbname = 'new'; // Your database name
-$username = 'habib@your-server-name'; // Format: username@servername (without .mysql.database.azure.com)
-$password = '{your_password_here}'; // Your Azure MySQL password
+$username = 'habib'; // Format: username@servername (without .mysql.database.azure.com)
+$password = 'paki.123'; // Your Azure MySQL password
 $port = 3306; // Default MySQL port
 
 // Azure MySQL requires SSL connection
@@ -26,4 +26,5 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 ?>
+
 
