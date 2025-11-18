@@ -1,31 +1,25 @@
 <?php
-// Database Configuration
-// Azure Database for MySQL Configuration
-// Replace these values with your Azure MySQL server details
+// Azure SQL Database Configuration
 
-$host = 'newdb1.database.windows.net'; // e.g., newdb1.mysql.database.azure.com
-$dbname = 'new'; // Your database name
-$username = 'habb'; // Format: username@servername (without .mysql.database.azure.com)
-$password = 'paki.123'; // Your Azure MySQL password
-$port = 3306; // Default MySQL port
+$server   = "tcp:newdb1.database.windows.net,1433";
+$database = "new";
+$username = "habib"; 
+$password = "paki.123";
 
-// Azure MySQL requires SSL connection
-$options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::MYSQL_ATTR_SSL_CA => true, // Enable SSL
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false // Set to true in production with proper certificate
+// SQL Server connection settings
+$connectionOptions = [
+    "Database" => $database,
+    "Uid"      => $username,
+    "PWD"      => $password,
+    "Encrypt"  => true,
+    "TrustServerCertificate" => false
 ];
 
-try {
-    $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
-    $conn = new PDO($dsn, $username, $password, $options);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Connect
+$conn = sqlsrv_connect($server, $connectionOptions);
+
+if ($conn === false) {
+    die(print_r(sqlsrv_errors(), true));
 }
-catch (PDOException $e) {
-    print("Error connecting to Azure MySQL.");
-    die(print_r($e));
-}
+echo "✔ Connected to Azure SQL successfully!";
 ?>
-
-
-
